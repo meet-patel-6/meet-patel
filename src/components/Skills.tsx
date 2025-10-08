@@ -99,18 +99,15 @@ const Skills = () => {
                   <h3 className="text-xl font-semibold">{category.category}</h3>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2"
-                      />
-                    </div>
+                    <Badge 
+                      key={i}
+                      variant="outline"
+                      className="px-3 py-1.5 text-sm"
+                    >
+                      {skill.name}
+                    </Badge>
                   ))}
                 </div>
               </div>
@@ -143,13 +140,13 @@ const Skills = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Badge className="bg-accent text-accent-foreground px-4 py-2">
-                  Deep Learning for NLP
+                  Deep Learning and NLP
                 </Badge>
                 <Badge className="bg-secondary text-secondary-foreground px-4 py-2">
-                  Statistical Machine Learning
+                  Statistics
                 </Badge>
                 <Badge className="bg-tech text-tech-foreground px-4 py-2">
-                  German Language
+                  Open Source Development
                 </Badge>
               </div>
             </div>

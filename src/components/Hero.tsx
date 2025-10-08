@@ -38,7 +38,7 @@ const Hero = () => {
               </p>
             </div>
             
-            {/* <div className="flex items-center gap-6 text-muted-foreground">
+            <div className="flex items-center gap-6 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
                 <span>Darmstadt, Germany</span>
@@ -47,11 +47,11 @@ const Hero = () => {
                 <Mail className="w-4 h-4" />
                 <span>thummarmeet15@gmail.com</span>
               </div>
-            </div> */}
+            </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
               M.Sc. student in AI & ML at TU Darmstadt, passionate about developing innovative solutions 
-              using AI, Python Development and Flutter.
+              using machine learning, blockchain technology, and full-stack development.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -75,10 +75,10 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Profile Image */}
-          <div className="relative flex justify-center lg:justify-end animate-fade-in">
+          <div className="relative flex justify-center animate-fade-in">
             {/* Rotating border */}
             <div className="relative">
-              <div className="w-100 h-100 rounded-full gradient-accent p-1">
+              <div className="w-96 h-96 rounded-full gradient-accent p-1">
                 <div className="w-full h-full rounded-full bg-background p-6">
                   <img 
                     src={profileImage} 
@@ -90,16 +90,16 @@ const Hero = () => {
               
               {/* Floating tech badges */}
               <div className="absolute -top-4 -right-4 bg-card border border-border rounded-full p-3 shadow-medium animate-float">
-                <Brain className="w-12 h-12 text-primary" />
+                <Brain className="w-6 h-6 text-primary" />
               </div>
               <div className="absolute top-1/4 -left-6 bg-card border border-border rounded-full p-3 shadow-medium animate-float" style={{ animationDelay: '1s' }}>
-                <Code className="w-12 h-12 text-secondary" />
+                <Code className="w-6 h-6 text-secondary" />
               </div>
               <div className="absolute bottom-1/4 -right-8 bg-card border border-border rounded-full p-3 shadow-medium animate-float" style={{ animationDelay: '2s' }}>
-                <Database className="w-12 h-12 text-accent" />
+                <Database className="w-6 h-6 text-accent" />
               </div>
               <div className="absolute -bottom-2 -left-4 bg-card border border-border rounded-full p-3 shadow-medium animate-float" style={{ animationDelay: '3s' }}>
-                <Cpu className="w-12 h-12 text-tech" />
+                <Cpu className="w-6 h-6 text-tech" />
               </div>
             </div>
           </div>

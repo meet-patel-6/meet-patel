@@ -20,8 +20,7 @@ const Navigation = () => {
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
-    { label: "Achievements", href: "#achievements" },
-    { label: "Contact", href: "#contact" }
+    { label: "Achievements", href: "#achievements" }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -45,7 +44,7 @@ const Navigation = () => {
           {/* Logo */}
           <button 
             onClick={scrollToTop}
-            className="text-xl font-bold text-primary hover:text-primary-hover transition-smooth"
+            className="text-2xl font-bold text-primary hover:text-primary-hover transition-smooth"
           >
             Meet Thummar
           </button>
