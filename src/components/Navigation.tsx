@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +19,11 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Achievements", href: "#achievements" }
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.achievements, href: "#achievements" }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -50,7 +53,7 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item, index) => (
               <button
                 key={index}
@@ -64,8 +67,9 @@ const Navigation = () => {
               className="bg-primary hover:bg-primary-hover text-primary-foreground"
               onClick={() => scrollToSection('#contact')}
             >
-              Get In Touch
+              {t.nav.getInTouch}
             </Button>
+            <LanguageSelector />
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,8 +102,11 @@ const Navigation = () => {
                 className="w-full bg-primary hover:bg-primary-hover text-primary-foreground mt-4"
                 onClick={() => scrollToSection('#contact')}
               >
-                Get In Touch
+                {t.nav.getInTouch}
               </Button>
+              <div className="flex justify-center mt-4">
+                <LanguageSelector />
+              </div>
             </div>
           </div>
         )}

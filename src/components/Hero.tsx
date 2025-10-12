@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Mail, MapPin, Code, Brain, Cpu, Database } from "lucide-react";
 import profileImage from "@/assets/meet.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -21,37 +24,36 @@ const Hero = () => {
           {/* Left Content */}
           <div className="animate-fade-in space-y-8">
             <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-              AI Engineering Student & Software Developer
+              {t.hero.badge}
             </div>
             
             <div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Hello, I'm <span className="text-primary">Meet</span>
+                {t.hero.hello} <span className="text-primary">{t.hero.name}</span>
                 <br />
-                <span className="text-secondary">Thummar</span>
+                <span className="text-secondary">{t.hero.surname}</span>
               </h1>
               
               <p className="text-xl md:text-2xl mb-4 text-muted-foreground font-light">
-                Turning complex problems into
+                {t.hero.subtitle}
                 <br />
-                <span className="text-foreground">elegant solutions...</span>
+                <span className="text-foreground">{t.hero.subtitleBold}</span>
               </p>
             </div>
             
             <div className="flex items-center gap-6 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>Darmstadt, Germany</span>
+                <span>{t.hero.location}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>thummarmeet15@gmail.com</span>
+                <span>{t.hero.email}</span>
               </div>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              M.Sc. student in AI & ML at TU Darmstadt, passionate about developing innovative solutions 
-              using machine learning, blockchain technology, and full-stack development.
+              {t.hero.description}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -61,7 +63,7 @@ const Hero = () => {
                 onClick={() => scrollToSection('projects')}
               >
                 <Code className="w-5 h-5 mr-2" />
-                See My Work
+                {t.hero.seeWork}
               </Button>
               <Button 
                 variant="outline" 
@@ -69,7 +71,7 @@ const Hero = () => {
                 className="px-8 py-6 text-lg"
                 onClick={() => scrollToSection('contact')}
               >
-                Get In Touch
+                {t.hero.getInTouch}
               </Button>
             </div>
           </div>

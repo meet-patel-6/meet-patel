@@ -1,158 +1,192 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Award, BookOpen, Users, Copyright, GraduationCap } from "lucide-react";
+import { ExternalLink, Github, Users, Award } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const Achievements = () => {
-  const achievements = [
+const Projects = () => {
+  const { t } = useLanguage();
+  const projects = [
     {
-      title: "GATE Top 0.7% Nationwide",
-      description: "Secured a top 0.7 percent position in GATE (Graduate Aptitude Test in Engineering), a national-level computer science graduate examination in India.",
-      category: "Academic Excellence",
-      icon: <GraduationCap className="w-6 h-6" />,
-      year: "2024",
-      color: "bg-primary"
-    },
-    {
-      title: "Copyright Holder - Greenity Application",
-      description: "Secured Copyright (Intellectual Property Rights) for the Greenity Mobile Application in January 2024, recognizing the innovation and originality of the solution.",
-      category: "Intellectual Property",
-      icon: <Copyright className="w-6 h-6" />,
-      year: "2024",
-      color: "bg-accent"
-    },
-    {
-      title: "State-Level Hackathon Winner",
-      description: "Led a team of six developers to victory in a state-level hackathon, developing the Greenity Application from scratch within 2 months using the spiral model.",
-      category: "Competition",
-      icon: <Trophy className="w-6 h-6" />,
-      year: "2023",
-      color: "bg-secondary"
-    },
-    {
-      title: "TFWS Scholarship Awardee",
-      description: "Recipient of the Tuition Fee Waiver Scheme (TFWS) scholarship, where all undergraduate tuition fees were paid by the State Government. Awarded to top 3% students based on academic achievements.",
-      category: "Scholarship",
+      title: "Greenity Application",
+      category: "Mobile Application",
+      description: "A state-level hackathon winning application that connects citizens and municipal corporations to improve urban greenery. Led a team of six developers with full code integration responsibility.",
+      highlights: [
+        "Won state-level hackathon competition",
+        "Led team of 6 developers",
+        "Complete development in 2 months using spiral model",
+        "Secured Copyright (Intellectual Property Rights) in Jan 2024",
+        "Role-based authentication system",
+        "Real-time database integration"
+      ],
+      technologies: ["Mobile Development", "Real-time Database", "Authentication", "Team Leadership"],
+      features: ["Role-based Authentication", "Real-time Updates", "Municipal Integration", "Urban Planning"],
       icon: <Award className="w-6 h-6" />,
-      year: "2020-2024",
-      color: "bg-tech"
+      status: "Copyright Secured"
     },
     {
-      title: "1000+ Algorithmic Problems Solved",
-      description: "Demonstrated consistent problem-solving skills by solving over 1000 algorithmic problems (Data Structures & Algorithms) across various coding platforms.",
-      category: "Programming",
-      icon: <BookOpen className="w-6 h-6" />,
-      year: "Ongoing",
-      color: "bg-primary"
+      title: "Decentralized Assessment Platform",
+      category: "Blockchain Application",
+      description: "Built during research internship at VUB, this Ethereum-based platform provides secure, decentralized assessments with advanced cryptography and faculty verification systems.",
+      highlights: [
+        "Ethereum blockchain implementation",
+        "Advanced security with AES & hybrid cryptography",
+        "Faculty verification system",
+        "Comprehensive vulnerability testing",
+        "Scalability and latency optimization",
+        "Controlled sharing mechanisms"
+      ],
+      technologies: ["Ethereum", "Solidity", "AES Encryption", "Blockchain", "Cryptography"],
+      features: ["Decentralized Storage", "Secure Assessments", "Faculty Verification", "Result Generation"],
+      icon: <ExternalLink className="w-6 h-6" />,
+      status: "Research Project",
+      github: "https://github.com/meet-thummar"
     },
     {
-      title: "ACM India Winter School Selection",
-      description: "Selected among 40 students nationwide to attend ACM India-hosted winter school on Optimization in ML and Operational Research at IIT-Goa campus.",
-      category: "Research",
+      title: "Movie Recommender System",
+      category: "Machine Learning",
+      description: "An intelligent movie recommendation system trained on IMDB dataset with an interactive frontend built using Streamlit and integrated with TMDB API for movie posters.",
+      highlights: [
+        "Trained on comprehensive IMDB dataset",
+        "Interactive Streamlit frontend",
+        "TMDB API integration for movie posters",
+        "Recommendation algorithm optimization",
+        "User-friendly interface design"
+      ],
+      technologies: ["Python", "Machine Learning", "Streamlit", "TMDB API", "Data Analysis"],
+      features: ["Personalized Recommendations", "Movie Posters", "Interactive UI", "IMDB Data"],
+      icon: <Github className="w-6 h-6" />,
+      status: "Completed"
+    },
+    {
+      title: "Next Block Reward Predictor",
+      category: "Blockchain Analytics",
+      description: "A machine learning model using Random Forest Regressor to predict Ethereum block rewards based on historical blockchain data from Etherscan API.",
+      highlights: [
+        "Random Forest Regressor implementation",
+        "Etherscan API data collection",
+        "Time series analysis and preprocessing",
+        "Blockchain data pattern recognition",
+        "Predictive model optimization"
+      ],
+      technologies: ["Python", "Random Forest", "Etherscan API", "Time Series", "Data Preprocessing"],
+      features: ["Reward Prediction", "Historical Analysis", "API Integration", "ML Algorithms"],
+      icon: <ExternalLink className="w-6 h-6" />,
+      status: "Research"
+    },
+    {
+      title: "Text-to-Speech Browser Extension",
+      category: "Web Extension",
+      description: "A browser extension that reads selected text aloud from webpages, available in both English and German versions for accessibility and language learning.",
+      highlights: [
+        "Multi-language support (English & German)",
+        "Browser extension development",
+        "Text selection and speech synthesis",
+        "User accessibility features",
+        "Cross-browser compatibility"
+      ],
+      technologies: ["HTML", "CSS", "JavaScript", "Web APIs", "Browser Extension"],
+      features: ["Text-to-Speech", "Multi-language", "Accessibility", "Easy Integration"],
       icon: <Users className="w-6 h-6" />,
-      year: "2023",
-      color: "bg-accent"
-    },
-    {
-      title: "Software Engineering Volunteer Instructor",
-      description: "Volunteered to teach Software Engineering and Flutter Development to international students for two months, demonstrating leadership and knowledge sharing.",
-      category: "Teaching",
-      icon: <Users className="w-6 h-6" />,
-      year: "2023",
-      color: "bg-secondary"
+      status: "Published"
     }
   ];
 
-  const stats = [
-    { label: "GATE Percentile", value: "99.3%", description: "National Ranking" },
-    { label: "Problems Solved", value: "1000+", description: "DSA Challenges" },
-    { label: "Team Size Led", value: "6", description: "Hackathon Project" },
-    { label: "Research Schools", value: "1", description: "IIT-Goa Selection" }
-  ];
-
   return (
-    <section id="achievements" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Achievements & Recognition</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.projects.title}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Recognition of excellence in academics, research, and leadership through 
-            competitions, scholarships, and professional contributions.
+            {t.projects.subtitle}
           </p>
         </div>
 
-        {/* Stats Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <Card key={index} className="gradient-card shadow-soft border-0 text-center p-6">
-              <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-              <div className="font-semibold mb-1">{stat.label}</div>
-              <div className="text-sm text-muted-foreground">{stat.description}</div>
-            </Card>
-          ))}
-        </div>
-
-        {/* Achievements Grid */}
         <div className="grid lg:grid-cols-2 gap-8">
-          {achievements.map((achievement, index) => (
-            <Card key={index} className="gradient-card shadow-medium border-0 hover:shadow-strong transition-smooth">
-              <div className="p-8">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className={`p-3 ${achievement.color} rounded-xl text-white`}>
-                    {achievement.icon}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                      <h3 className="text-xl font-semibold">{achievement.title}</h3>
-                      <Badge variant="outline" className="w-fit">
-                        {achievement.year}
-                      </Badge>
+          {projects.map((project, index) => (
+            <Card key={index} className="gradient-card shadow-medium border-0 hover:shadow-strong transition-smooth group">
+              <div className="p-8 h-full flex flex-col">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 gradient-hero rounded-lg text-white">
+                      {project.icon}
                     </div>
-                    <Badge className="bg-muted text-muted-foreground mb-4">
-                      {achievement.category}
-                    </Badge>
+                    <div>
+                      <Badge variant="secondary" className="mb-2">
+                        {project.category}
+                      </Badge>
+                      <h3 className="text-xl font-semibold group-hover:text-primary transition-smooth">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <Badge className={`
+                    ${project.status === 'Copyright Secured' ? 'bg-accent text-accent-foreground' : ''}
+                    ${project.status === 'Research Project' ? 'bg-secondary text-secondary-foreground' : ''}
+                    ${project.status === 'Completed' ? 'bg-tech text-tech-foreground' : ''}
+                    ${project.status === 'Research' ? 'bg-primary text-primary-foreground' : ''}
+                    ${project.status === 'Published' ? 'bg-green-500 text-white' : ''}
+                  `}>
+                    {project.status}
+                  </Badge>
+                </div>
+
+                <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3">{t.projects.highlights}</h4>
+                  <ul className="space-y-2">
+                    {project.highlights.slice(0, 4).map((highlight, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3">{t.projects.technologies}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, i) => (
+                      <Badge key={i} variant="outline" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {achievement.description}
-                </p>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3">{t.projects.features}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.features.map((feature, i) => (
+                      <Badge key={i} className="bg-tech/10 text-tech text-xs">
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {project.github && (
+                  <div className="mt-auto pt-4">
+                    <Button 
+                      className="w-full bg-primary hover:bg-primary-hover text-primary-foreground"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      {t.projects.viewGithub}
+                    </Button>
+                  </div>
+                )}
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <Card className="gradient-card shadow-medium border-0 max-w-4xl mx-auto">
-            <div className="p-8">
-              <h3 className="text-2xl font-semibold mb-4">
-                Continuous Learning & Growth
-              </h3>
-              <p className="text-muted-foreground text-lg mb-6">
-                These achievements represent milestones in my journey of continuous learning 
-                and professional development. I'm always eager to take on new challenges and 
-                contribute to innovative projects in AI and technology.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Badge className="bg-primary text-primary-foreground px-4 py-2">
-                  Problem Solver
-                </Badge>
-                <Badge className="bg-secondary text-secondary-foreground px-4 py-2">
-                  Team Leader
-                </Badge>
-                <Badge className="bg-accent text-accent-foreground px-4 py-2">
-                  Innovation Driver
-                </Badge>
-                <Badge className="bg-tech text-tech-foreground px-4 py-2">
-                  Research Enthusiast
-                </Badge>
-              </div>
-            </div>
-          </Card>
         </div>
       </div>
     </section>
   );
 };
 
-export default Achievements;
+export default Projects;

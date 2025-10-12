@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Github, Phone, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,8 +19,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">Meet Thummar</h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              AI Engineering student at TU Darmstadt, passionate about machine learning, 
-              blockchain technology, and building innovative solutions that make a difference.
+              {t.footer.intro}
             </p>
             <div className="flex gap-4">
               <Button
@@ -26,7 +28,7 @@ const Footer = () => {
                 onClick={() => window.open('mailto:thummarmeet15@gmail.com', '_blank')}
               >
                 <Mail className="w-4 h-4 mr-2" />
-                Email
+                {t.footer.email}
               </Button>
               <Button
                 variant="outline"
@@ -34,26 +36,26 @@ const Footer = () => {
                 onClick={() => window.open('tel:+4915510291172', '_blank')}
               >
                 <Phone className="w-4 h-4 mr-2" />
-                Call
+                {t.footer.call}
               </Button>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
               {[
-                { label: "About", href: "#about" },
-                { label: "Experience", href: "#experience" },
-                { label: "Projects", href: "#projects" },
-                { label: "Skills", href: "#skills" },
-                { label: "Achievements", href: "#achievements" },
-                { label: "Contact", href: "#contact" }
+                { label: t.nav.about, href: "#about" },
+                { label: t.nav.experience, href: "#experience" },
+                { label: t.nav.projects, href: "#projects" },
+                { label: t.nav.skills, href: "#skills" },
+                { label: t.nav.achievements, href: "#achievements" },
+                { label: t.nav.contact, href: "#contact" }
               ].map((link, index) => (
                 <li key={index}>
                   <button
-                  onClick={() => document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: 'smooth' })}
                     className="text-muted-foreground hover:text-foreground transition-smooth"
                   >
                     {link.label}
@@ -65,7 +67,7 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect With Me</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.footer.connect}</h4>
             <div className="space-y-3 mb-6">
               <a 
                 href="https://linkedin.com/in/meet-thummar15"
@@ -74,7 +76,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-smooth"
               >
                 <Linkedin className="w-5 h-5" />
-                <span>LinkedIn Profile</span>
+                <span>{t.footer.linkedinProfile}</span>
               </a>
               <a 
                 href="https://github.com/meet-patel-6"
@@ -83,11 +85,11 @@ const Footer = () => {
                 className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-smooth"
               >
                 <Github className="w-5 h-5" />
-                <span>GitHub Repository</span>
+                <span>{t.footer.githubRepo}</span>
               </a>
             </div>
             <p className="text-muted-foreground/80 text-sm">
-              Open to collaboration and new opportunities in AI, ML, and software development.
+              {t.footer.openTo}
             </p>
           </div>
         </div>
@@ -95,12 +97,12 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-muted-foreground text-sm text-center md:text-left">
-            © {currentYear} Meet Thummar. All rights reserved. | Built with passion for innovation.
+            © {currentYear} {t.footer.copyright}
           </div>
           
           <div className="flex items-center gap-4">
             <div className="text-muted-foreground text-sm">
-              Made with React & TypeScript
+              {t.footer.madeWith}
             </div>
             <Button
               variant="outline"
@@ -108,7 +110,7 @@ const Footer = () => {
               onClick={scrollToTop}
             >
               <ArrowUp className="w-4 h-4 mr-2" />
-              Back to Top
+              {t.footer.backToTop}
             </Button>
           </div>
         </div>

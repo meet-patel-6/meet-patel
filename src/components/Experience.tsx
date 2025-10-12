@@ -1,8 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Experience = () => {
+  const { t } = useLanguage();
   const experiences = [
     {
       title: "Research & Development Intern",
@@ -43,10 +45,9 @@ const Experience = () => {
     <section id="experience" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Professional Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.experience.title}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            My journey through research and development roles, building expertise in 
-            full-stack development, blockchain technology, and AI applications.
+            {t.experience.subtitle}
           </p>
         </div>
 
@@ -80,7 +81,7 @@ const Experience = () => {
                           className="flex items-center gap-2 text-primary hover:text-primary-hover transition-smooth"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          <span>View Project</span>
+                          <span>{t.experience.viewProject}</span>
                         </a>
                       )}
                     </div>
@@ -92,7 +93,7 @@ const Experience = () => {
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="font-semibold mb-3">Key Achievements:</h4>
+                  <h4 className="font-semibold mb-3">{t.experience.achievements}</h4>
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start gap-3 text-muted-foreground">
@@ -104,7 +105,7 @@ const Experience = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-3">Technologies Used:</h4>
+                  <h4 className="font-semibold mb-3">{t.experience.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, i) => (
                       <Badge key={i} variant="secondary" className="bg-tech/10 text-tech hover:bg-tech/20">

@@ -2,11 +2,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Code, Database, Brain, Wrench, Users, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Skills = () => {
+  const { t } = useLanguage();
   const skillCategories = [
     {
-      category: "Programming Languages",
+      category: t.skills.categories.programming,
       icon: <Code className="w-6 h-6" />,
       skills: [
         { name: "Python", level: 95 },
@@ -17,7 +19,7 @@ const Skills = () => {
       ]
     },
     {
-      category: "AI & Machine Learning",
+      category: t.skills.categories.aiMl,
       icon: <Brain className="w-6 h-6" />,
       skills: [
         { name: "PyTorch", level: 85 },
@@ -28,7 +30,7 @@ const Skills = () => {
       ]
     },
     {
-      category: "Tools & Frameworks",
+      category: t.skills.categories.tools,
       icon: <Wrench className="w-6 h-6" />,
       skills: [
         { name: "Spring Boot", level: 88 },
@@ -39,7 +41,7 @@ const Skills = () => {
       ]
     },
     {
-      category: "Databases",
+      category: t.skills.categories.databases,
       icon: <Database className="w-6 h-6" />,
       skills: [
         { name: "MySQL", level: 90 },
@@ -49,7 +51,7 @@ const Skills = () => {
       ]
     },
     {
-      category: "Soft Skills",
+      category: t.skills.categories.softSkills,
       icon: <Users className="w-6 h-6" />,
       skills: [
         { name: "Team Leadership", level: 90 },
@@ -60,7 +62,7 @@ const Skills = () => {
       ]
     },
     {
-      category: "Languages",
+      category: t.skills.categories.languages,
       icon: <Globe className="w-6 h-6" />,
       skills: [
         { name: "English", level: 95 },
@@ -81,10 +83,9 @@ const Skills = () => {
     <section id="skills" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Skills & Expertise</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.skills.title}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive overview of my technical skills, tools, and expertise 
-            developed through academic projects and professional experience.
+            {t.skills.subtitle}
           </p>
         </div>
 
@@ -116,7 +117,7 @@ const Skills = () => {
         </div>
 
         <div>
-          <h3 className="text-2xl font-semibold text-center mb-8">Technologies & Specializations</h3>
+          <h3 className="text-2xl font-semibold text-center mb-8">{t.skills.techTitle}</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {technologies.map((tech, index) => (
               <Badge 
@@ -134,19 +135,19 @@ const Skills = () => {
         <div className="mt-16">
           <Card className="gradient-card shadow-medium border-0">
             <div className="p-8 text-center">
-              <h3 className="text-2xl font-semibold mb-4">Current Academic Focus</h3>
+              <h3 className="text-2xl font-semibold mb-4">{t.skills.academicFocus.title}</h3>
               <p className="text-muted-foreground mb-6">
-                M.Sc. in AI & ML at TU Darmstadt - Specializing in advanced machine learning techniques
+                {t.skills.academicFocus.description}
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Badge className="bg-accent text-accent-foreground px-4 py-2">
-                  Deep Learning and NLP
+                  {t.skills.academicFocus.focus1}
                 </Badge>
                 <Badge className="bg-secondary text-secondary-foreground px-4 py-2">
-                  Statistics
+                  {t.skills.academicFocus.focus2}
                 </Badge>
                 <Badge className="bg-tech text-tech-foreground px-4 py-2">
-                  Open Source Development
+                  {t.skills.academicFocus.focus3}
                 </Badge>
               </div>
             </div>
